@@ -40,4 +40,5 @@ function clicky_enque_style(){
 	}
 
 add_action('wp_enqueue_scripts', 'clicky_enque_style');
+add_action( 'admin_enqueue_scripts', 'clicky_enque_style' );
 ?>
