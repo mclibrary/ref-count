@@ -1,1 +1,9 @@
 /** Clicky-Stylesheet **/
+
+.ref-count{
+	cursor:pointer;
+}
+
+.sent {
+	background-color:blue !important;
+}
