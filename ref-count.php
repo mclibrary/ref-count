@@ -36,14 +36,21 @@ function ref_counter_add_js(){
 		var label = jQuery( '.display-name' ).html();
 
 		jQuery('#ref-count').click(function(){
-			_gaq.push(function(){
-				jQuery('#wp-admin-bar-ref-count').addClass('sent');
-			});
+			// _gaq.push(function(){
+			// 	jQuery('#wp-admin-bar-ref-count').toggleClass('sent');
+			// });
 			_gaq.push(['_trackEvent', category , action, label]);
 		});
 	});
-</script><?php }
+</script><?php 
+	}
 }
 
 add_action( 'wp_footer', 'ref_counter_add_js');
 add_action( 'admin_footer', 'ref_counter_add_js');
+
+function ref_counter_enqueue(){
+	wp_enqueue_style( 'ref-count', plugin_dir_url( __file__ ) . 'ref-count.css', '20130124' );
+}
+
+add_action( 'admin_bar_init', 'ref_counter_enqueue' );
