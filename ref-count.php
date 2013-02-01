@@ -2,10 +2,10 @@
 /*
 Plugin Name: Ref-Counter
 Description: A simple, one-click counter.
-Version: 20130122
+Version: 20130201
 Plugin URI: http://library.milliagn.edu/
 Author: Jack Weinbender
-Author URI: http://library.milligan.edu/
+Author URI: https://github.com/jackweinbender
 */
 
 function ref_counter_menu( $wp_admin_bar ) {
@@ -32,13 +32,17 @@ function ref_counter_add_js(){
 	jQuery(document).ready(function(){
 
 		var category = 'ref-count';
-		var action = 'click';
-		var label = jQuery( '.display-name' ).html();
+		var action = jQuery( '.display-name' ).html();
+		var label = '';
 
 		jQuery('#ref-count').click(function(){
 			// _gaq.push(function(){
 			// 	jQuery('#wp-admin-bar-ref-count').toggleClass('sent');
 			// });
+
+			var today = new Date();
+			label = 'Hour' + today.getHours();
+			alert(label);
 			_gaq.push(['_trackEvent', category , action, label]);
 		});
 	});
