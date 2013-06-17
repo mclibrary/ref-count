@@ -31,19 +31,21 @@ function ref_counter_add_js(){
 	
 	jQuery(document).ready(function(){
 
-		var category = 'ref-count';
+		var category = 'reference';
 		var action = jQuery( '.display-name' ).html();
 		var label = '';
+		var count = 0;
 
-		jQuery('#ref-count').click(function(){
-			// _gaq.push(function(){
-			// 	jQuery('#wp-admin-bar-ref-count').toggleClass('sent');
-			// });
-
+		jQuery('#ref-count').mousedown(function(){
+			count = count + 1;
 			var today = new Date();
 			label = 'Hour' + today.getHours();
-			alert(label);
 			_gaq.push(['_trackEvent', category , action, label]);
+			jQuery('#wp-admin-bar-ref-count').addClass('sent');
+			jQuery('#ref-count').html('Ref + ' + count);
+		});
+		jQuery('#ref-count').mouseup(function(){
+				jQuery('#wp-admin-bar-ref-count').removeClass('sent');
 		});
 	});
 </script><?php 
@@ -54,7 +56,7 @@ add_action( 'wp_footer', 'ref_counter_add_js');
 add_action( 'admin_footer', 'ref_counter_add_js');
 
 function ref_counter_enqueue(){
-	wp_enqueue_style( 'ref-count', plugin_dir_url( __file__ ) . 'ref-count.css', '20130124' );
+	wp_enqueue_style( 'ref-count', get_bloginfo('template_directory') . '/inc/theme-plugins/ref-count/ref-count.css', '20130124' );
 }
 
 add_action( 'admin_bar_init', 'ref_counter_enqueue' );

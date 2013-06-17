@@ -1,17 +1,15 @@
 /** Clicky-Stylesheet **/
 
-#ref-count{
+#wp-admin-bar-ref-count{
+	padding:0;
 	cursor:pointer;
 }
 
-.sent {
-	background-color:blue !important;
+#ref-count {
+	height:2em;
+	margin:0 -12px;
 }
 
-#wp-admin-bar-ref-count{
-	 -webkit-transition: background-color 0.25s ease-out;
-  	-moz-transition: background-color 0.25s ease-out;
-  	-ms-transition: background-color 0.25s ease-out;
-  	-o-transition: background-color 0.25s ease-out;
-  	transition: background-color 0.25s ease-out;
+.sent, .sent .ab-empty-item:hover {
+	background:green !important;
 }
