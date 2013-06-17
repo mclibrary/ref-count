@@ -56,7 +56,7 @@ add_action( 'wp_footer', 'ref_counter_add_js');
 add_action( 'admin_footer', 'ref_counter_add_js');
 
 function ref_counter_enqueue(){
-	wp_enqueue_style( 'ref-count', get_bloginfo('template_directory') . '/inc/theme-plugins/ref-count/ref-count.css', '20130124' );
+	wp_enqueue_style( 'ref-count', plugins_url( 'ref-count.css' , __FILE__ ), '20130124' );
 }
 
 add_action( 'admin_bar_init', 'ref_counter_enqueue' );
